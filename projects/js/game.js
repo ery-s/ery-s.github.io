@@ -14,18 +14,46 @@ let seconds = 0;
 //SETUP GAME
 function createGrid(difficulty) {
     //create game grid based on the selected difficulty
+    
+    let gridSize;// var for size of grid to determine num of cards needed
+    
     switch (difficulty) {
+        //easy
         case 0:
-            return 16;
+            gridSize = 16;//16 cards 8 pairs
+            
+        //medium    
         case 1:
-            return 25;
+            return 26;// 26 cards 13 pairs
         case 2:
-            return 36;
+            return 36;//36 cards 18 pairs
     };
     
+    //the values that the cards could have, need 18 options
+    let cardPosibleValues = ['👾','👽','👻','🐶','🦎','🦩',
+                                    '🎀','👑','🧸','🍩','🍒','💐',
+                                    '🍓','🚀','🚁','⭐','⛄','⚡'];
+    
+    //the card values chosen based on diffculity
+    let selectedCards = cardPosibleValues.slice(0, gridSize / 2);
+
+    //empty card array 
+    let cardArray= [];
+    
+    //loop through each of the values in the selected card array and duplicates it
+    //makes pairs by creating 2 of the same card with the selected value and each card is then assigned the flipped and matched status
+    //each card is then added to the card array
+    for (let i = 0; i < selectedCards.length; i++) {
+        cardArray.push({ value: selectedCards[i], isFlipped: false, isMatched: false });
+        cardArray.push({ value: selectedCards[i], isFlipped: false, isMatched: false });
+    }
+    
+    return cardArray;
 }
+
 function randomiseCards(cards) {
     //randomise card positions
+    
 }
 function displayCards(cards) {
     //display cards
