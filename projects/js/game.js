@@ -125,6 +125,23 @@ function flipCard(cardElement, card) {
 }
 function checkMatch(card1, card2) {
     //check if the 2 most recently flipped cards match
+    if (card1.card.dataset.value === card2.card.dataset.value) {
+        //if they match set their isMatched property to true and clear the flippedCards array
+        card1.card.isMatched = true;
+        card2.card.isMatched = true;
+        flippedCards = [];
+        matchedCardPairs++;
+        
+    } else {
+        //if they don't match flip cards over after a  delay and clear the flippedCards array
+        setTimeout(() => {
+            card1.card.isFlipped = false;
+            card2.card.isFlipped = false;
+            card1.cardElement.classList.remove('flipped');
+            card2.cardElement.classList.remove('flipped');
+            flippedCards = [];
+        }, 1000); //1 sec delay before flipping back
+    }
 }
 function checkWin(){
     //check if all cards have a match
