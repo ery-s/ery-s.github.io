@@ -21,10 +21,10 @@ function createGrid(difficulty) {
         //easy
         case 0:
             gridSize = 16;//16 cards 8 pairs
-            
+            break;
         //medium    
         case 1:
-            gridSize = 26;// 26 cards 13 pairs
+            gridSize = 24;// 26 cards 13 pairs
         case 2:
             gridSize = 36;//36 cards 18 pairs
     };
@@ -80,6 +80,15 @@ function displayCards(cards) {
         cardElement.dataset.value = card.value; //store the value of the card for later use for the checkMatch function
         
         //cards have 2 sides (front and back) 
+        const cardFront = document.createElement('div');
+        cardFront.classList.add('card-front');
+        cardFront.textContent = card.value;
+
+        const cardBack = document.createElement('div');
+        cardBack.classList.add('card-back');
+        cardBack.textContent = '?';
+        
+        //append the front and back to the card element
         cardElement.appendChild(cardFront);
         cardElement.appendChild(cardBack);
         
@@ -92,8 +101,27 @@ function displayCards(cards) {
 }
 
 //GAME LOGIC
-function flipCard(card) {
-    //flip a crd on a click cna only flip 2 at a time
+function flipCard(cardElement, card) {
+    //flip a crad on a click can only flip 2 at a time
+    //check if the card is already flipped or matched, if so return and do nothing
+    if (card.isFlipped || card.isMatched) {
+        return;
+    }
+    
+    //flip the card by changing its isFlipped property to true and updating the display
+    card.isFlipped = true;
+    cardElement.classList.add('flipped');
+    
+    //add the flipped card to the flippedCards array
+    flippedCards.push({ cardElement, card });
+    
+    //check if there are 2 flipped cards, if so check for a match
+    if (flippedCards.length === 2) {
+        moves++;
+        updateMoves();
+        checkMatch(flippedCards[0], flippedCards[1]);
+    }
+    
 }
 function checkMatch(card1, card2) {
     //check if the 2 most recently flipped cards match
