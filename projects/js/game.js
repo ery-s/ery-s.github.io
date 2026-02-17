@@ -25,8 +25,10 @@ function createGrid(difficulty) {
         //medium    
         case 1:
             gridSize = 24;// 26 cards 13 pairs
+            break;
         case 2:
             gridSize = 36;//36 cards 18 pairs
+            break;
     };
     
     //the values that the cards could have, need 18 options
@@ -125,12 +127,13 @@ function flipCard(cardElement, card) {
 }
 function checkMatch(card1, card2) {
     //check if the 2 most recently flipped cards match
-    if (card1.card.dataset.value === card2.card.dataset.value) {
+    if (card1.card.value === card2.card.value) {
         //if they match set their isMatched property to true and clear the flippedCards array
         card1.card.isMatched = true;
         card2.card.isMatched = true;
         flippedCards = [];
         matchedCardPairs++;
+        checkWin();
         
     } else {
         //if they don't match flip cards over after a  delay and clear the flippedCards array
@@ -152,20 +155,41 @@ function checkWin(){
 }
 function updateMoves() {
     //display the moves
+    document.getElementById('moves').innerHTML = `Moves: ${moves}`;
+    
 }
 function updateTime(){
     //display time
+    document.getElementById('timer').innerHTML = `Time: ${seconds} seconds`;
 }
 
 //GAME CONTROL
 function startGame(difficulty) {
     //game stars, timer starts and count moves, grid displayed
     
+    //reset variables for a new game
+    clearInterval(timer);
+    seconds = 0;
+    matchedCardPairs = 0;
+    flippedCards = 0;
+    moves = 0;
+    
     //intialsie game state
     cards= createGrid(difficulty);
     cards = randomiseCards(cards);
     displayCards(cards);
     
+    //start timer
+    timer = setInterval(() => {
+        seconds++;
+        updateTime();
+    }, 1000); //update time every second
+    
+    //start move count
+    updateMoves();
+    
+    //display time
+    updateTime();
 }
 function restartGame() {
     //reset grid, time and score
