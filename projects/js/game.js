@@ -53,7 +53,15 @@ function createGrid(difficulty) {
 
 function randomiseCards(cards) {
     //randomise card positions
-    
+    //Fisher-Yates shuffle algorithm
+    //this loops through the cards array from the last element to the first
+    // it then randomly selects an index from the remaining unshuffled portion of the array 
+    // it the swaps the 2 elements (the last and the random)
+    for (let i = cards.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [cards[i], cards[j]] = [cards[j], cards[i]];
+    }
+    return cards; //returns the shuffled array
 }
 function displayCards(cards) {
     //display cards
