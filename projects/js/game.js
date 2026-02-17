@@ -145,6 +145,10 @@ function checkMatch(card1, card2) {
 }
 function checkWin(){
     //check if all cards have a match
+        if (matchedCardPairs === cards.length / 2) {
+            clearInterval(timer); //stop the timer
+            alert(`Congratulations! You've won the game in ${moves} moves and ${seconds} seconds!`); //display win message with moves and time
+        }
 }
 function updateMoves() {
     //display the moves
