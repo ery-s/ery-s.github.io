@@ -64,7 +64,31 @@ function randomiseCards(cards) {
     return cards; //returns the shuffled array
 }
 function displayCards(cards) {
-    //display cards
+    //display cards    
+    
+    //get the game board element from the HTML document to display the cards on
+    const gameBoard = document.getElementById('game-board');
+    
+    //clear the game board before displaying new cards
+    gameBoard.innerHTML = '';
+    
+    //loop through the cards array and create a card element for each card
+    cards.forEach((card, index) => {
+        const cardElement = document.createElement('div'); //create a div element for each card
+        cardElement.classList.add('card');//card class to the element for styling
+        cardElement.dataset.index = index; //store the index of the card for later use for the flipCard function
+        cardElement.dataset.value = card.value; //store the value of the card for later use for the checkMatch function
+        
+        //cards have 2 sides (front and back) 
+        cardElement.appendChild(cardFront);
+        cardElement.appendChild(cardBack);
+        
+        //each card needs an event listener to handle clicks and flip the card
+        cardElement.addEventListener('click', () => flipCard(cardElement,card));
+        
+        //add the card element to the game board
+        gameBoard.appendChild(cardElement);
+    });
 }
 
 //GAME LOGIC
