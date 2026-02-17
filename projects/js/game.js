@@ -150,4 +150,5 @@ function restartGame() {
     //reset grid, time and score
 }
 
-
+//called when the page loads to start the game with the default difficulty (easy)
+startGame(0);
