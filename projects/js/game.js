@@ -24,9 +24,9 @@ function createGrid(difficulty) {
             
         //medium    
         case 1:
-            return 26;// 26 cards 13 pairs
+            gridSize = 26;// 26 cards 13 pairs
         case 2:
-            return 36;//36 cards 18 pairs
+            gridSize = 36;//36 cards 18 pairs
     };
     
     //the values that the cards could have, need 18 options
@@ -77,8 +77,14 @@ function updateTime(){
 }
 
 //GAME CONTROL
-function startGame() {
+function startGame(difficulty) {
     //game stars, timer starts and count moves, grid displayed
+    
+    //intialsie game state
+    cards= createGrid(difficulty);
+    cards = randomiseCards(cards);
+    displayCards(cards);
+    
 }
 function restartGame() {
     //reset grid, time and score
