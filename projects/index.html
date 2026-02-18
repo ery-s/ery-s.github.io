@@ -10,22 +10,26 @@
 <div class="container">
     <h1>Memory Card Game</h1>
     
-    <div id="difficulty-section">
-        <p>Select Difficulty:</p>
-        <button onclick="startGame(0)">Easy</button>
-        <button onclick="startGame(1)">Medium</button>
-        <button onclick="startGame(2)">Hard</button>
+    <div id="home-section">
+        <p>Welcome to the Memory Card Game!  Select a difficulty level to start playing.</p>
+    <div class="difficulty-buttons">
+        <button class="difficulty-btn" data-difficulty="0">Easy<br><span>12 Cards</span></button>
+        <button class="difficulty-btn" data-difficulty="1">Medium<br><span>20 Cards</span></button>
+        <button class="difficulty-btn" data-difficulty="2">Hard<br><span>24 Cards</span></button>
     </div>
-    
-    <div id="game-board">
-       
+        <button id="play-btn" disabled>Play Game</button>
     </div>
+    <div id="game-screen" style="display: none;">
     <div class="stats">
         <p>Moves: <span id="moves">0</span></p>
-        <p>Time: <span id="timer">0</span>s</p>
+        <p>Time: <span id="timer">0</span></p>
     </div>
     <button id="pause">||</button>
     <a href="../../index.html" class="back-link">← Back to Portfolio</a>
+    <div id="game-board">
+
+    </div>
+    </div>
 </div>
 
 <script src="js/game.js"></script>
