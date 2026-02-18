@@ -20,21 +20,21 @@ function createGrid(difficulty) {
     switch (difficulty) {
         //easy
         case 0:
-            gridSize = 16;//16 cards 8 pairs
+            gridSize = 12;//12 cards 6 pairs
             break;
         //medium    
         case 1:
-            gridSize = 24;// 26 cards 13 pairs
+            gridSize = 20;// 20 cards 10 pairs
             break;
         case 2:
-            gridSize = 36;//36 cards 18 pairs
+            gridSize = 24;//28 cards 12 pairs
             break;
     };
     
-    //the values that the cards could have, need 18 options
-    let cardPosibleValues = ['👾','👽','👻','🐶','🦎','🦩',
-                                    '🎀','👑','🧸','🍩','🍒','💐',
-                                    '🍓','🚀','🚁','⭐','⛄','⚡'];
+    //the values that the cards could have, need 13 options
+    let cardPosibleValues = ['👽','👻','🐶','🦎',
+                                    '🎀','🧸','🍒','💐',
+                                    '🍓','⭐','⛄','⚡'];
     
     //the card values chosen based on diffculity
     let selectedCards = cardPosibleValues.slice(0, gridSize / 2);
