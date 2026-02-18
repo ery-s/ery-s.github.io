@@ -109,6 +109,10 @@ function flipCard(cardElement, card) {
     if (card.isFlipped || card.isMatched) {
         return;
     }
+
+    if (flippedCards.length === 2) {
+        return;
+    }
     
     //flip the card by changing its isFlipped property to true and updating the display
     card.isFlipped = true;
@@ -122,18 +126,22 @@ function flipCard(cardElement, card) {
         moves++;
         updateMoves();
         checkMatch(flippedCards[0], flippedCards[1]);
-    }
+    } 
     
 }
 function checkMatch(card1, card2) {
     //check if the 2 most recently flipped cards match
     if (card1.card.value === card2.card.value) {
         //if they match set their isMatched property to true and clear the flippedCards array
+        setTimeout(() => {
         card1.card.isMatched = true;
         card2.card.isMatched = true;
+        card1.cardElement.classList.add('matched');
+        card2.cardElement.classList.add('matched');
         flippedCards = [];
         matchedCardPairs++;
         checkWin();
+        }, 1000); //delay so card show before matched
         
     } else {
         //if they don't match flip cards over after a  delay and clear the flippedCards array
@@ -171,7 +179,7 @@ function startGame(difficulty) {
     clearInterval(timer);
     seconds = 0;
     matchedCardPairs = 0;
-    flippedCards = 0;
+    flippedCards = [];
     moves = 0;
     
     //intialsie game state
