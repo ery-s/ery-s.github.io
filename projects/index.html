@@ -8,6 +8,7 @@
 </head>
 <body>
 <div class="container">
+    <a href="../../index.html" class="back-link">← Back to Portfolio</a>
     <h1>Memory Card Game</h1>
     
     <div id="home-section">
@@ -24,8 +25,13 @@
         <p>Moves: <span id="moves">0</span></p>
         <p>Time: <span id="timer">0</span></p>
     </div>
-    <button id="pause">||</button>
-    <a href="../../index.html" class="back-link">← Back to Portfolio</a>
+    <button id="pause-btn">||</button>
+        <div id="pause-section" style="display: none;">
+            <h2>Game Paused</h2>
+            <button id="resume-btn">Resume</button>
+            <button id="restart-btn">Restart</button>
+            <button id="home-btn">Home</button>
+        </div>
     <div id="game-board">
 
     </div>

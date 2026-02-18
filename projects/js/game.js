@@ -8,6 +8,7 @@ let matchedCardPairs = 0;
 let moves = 0
 let timer = null;
 let seconds = 0;
+let isPaused = false;
 
 //-------Methods--------//
 
@@ -104,6 +105,11 @@ function displayCards(cards) {
 
 //GAME LOGIC
 function flipCard(cardElement, card) {
+    //card can not flipped if paused
+    if(isPaused){
+        return;
+    }
+    
     //flip a crad on a click can only flip 2 at a time
     //check if the card is already flipped or matched, if so return and do nothing
     if (card.isFlipped || card.isMatched) {
@@ -180,6 +186,7 @@ function startGame(difficulty) {
     matchedCardPairs = 0;
     flippedCards = [];
     moves = 0;
+    isPaused= false;
     
     //intialsie game state
     cards= createGrid(difficulty);
@@ -188,8 +195,10 @@ function startGame(difficulty) {
     
     //start timer
     timer = setInterval(() => {
+        if(!isPaused){ //only update time if the game is not paused
         seconds++;
         updateTime();
+        }
     }, 1000); //update time every second
     
     //start move count
@@ -198,17 +207,18 @@ function startGame(difficulty) {
     //display time
     updateTime();
 }
-function restartGame() {
-    //reset grid, time and score
-}
 
 //Home setion 
 let selectedDifficulty = null; //no difficulty selected at the start
-const difficultyButtons = document.querySelectorAll('.difficulty-btn');//get all difficulty buttons
-    const homeSection = document.getElementById('home-section'); //get home section element
-    const gameSection = document.getElementById('game-section'); //get game section element
+const difficultyButtons = document.querySelectorAll('.difficulty-btn');//get all difficulty buttons 
+const homeSection = document.getElementById('home-section'); //get home section element
+const gameSection = document.getElementById('game-section'); //get game section element
 const pauseButton = document.getElementById('pause-btn'); //get pause button element
 const playButton = document.getElementById('play-btn'); //get play button element
+const pauseSection = document.getElementById('pause-section'); //get pause section element
+const resumeButton = document.getElementById('resume-btn'); //get resume button element
+const homeButton = document.getElementById('home-btn'); //get home button element
+const restartButton = document.getElementById('restart-btn'); //get restart button element
 
 
 //add event listeners to difficulty buttons to start the game with the selected difficulty
@@ -226,3 +236,39 @@ playButton.addEventListener('click', () => {
     gameSection.style.display = 'block'; //show game section
     startGame(selectedDifficulty); //start the game with the selected difficulty
 })
+pauseButton.addEventListener('click', () => {
+   isPaused= true; // set the game to paused state
+    pauseSection.style.display = 'block'; //show the pause section
+    document.getElementById('game-board').style.display = 'none'; //hide the game board to prevent interaction while paused
+    pauseButton.style.display = 'none';
+    document.querySelector('.sstats').style.display = 'none';
+    
+});
+
+resumeButton.addEventListener('click', () => {
+    isPaused= false; //set the game to unpaused state
+    pauseSection.style.display = 'none'; //hide the pause section
+    document.getElementById('game-board').style.display = 'grid'; //show the game board 
+    pauseButton.style.display = 'block';//show the pause button 
+    document.querySelector('.stats').style.display = 'block'; //show the stats again
+});
+
+homeButton.addEventListener('click', () => {
+    pauseSection.style.display = 'none'; //hide the pause section
+    gameSection.style.display = 'none'; //hide the game section
+    homeSection.style.display = 'block'; //show the home section
+    clearInterval(timer); //stop the timer
+    
+    //reset home section to initial state
+    difficultyButtons.forEach(b => b.classList.remove('selected'));
+    playButton.disabled = true; //disable the play button until a difficulty is selected
+    selectedDifficulty = null; //reset selected difficulty
+});
+
+restartButton.addEventListener('click', () => {
+    pauseSection.style.display = 'none'; //Hide pause menu
+    document.getElementById('game-board').style.display = 'grid';
+    pauseButton.style.display = 'block'; //Show pause button again
+    document.querySelector('.stats').style.display = 'block'; // Show stats again
+    startGame(selectedDifficulty);
+});
