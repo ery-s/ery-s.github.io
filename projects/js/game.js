@@ -202,5 +202,27 @@ function restartGame() {
     //reset grid, time and score
 }
 
-//called when the page loads to start the game with the default difficulty (easy)
-startGame(0);
+//Home setion 
+let selectedDifficulty = null; //no difficulty selected at the start
+const difficultyButtons = document.querySelectorAll('.difficulty-btn');//get all difficulty buttons
+    const homeSection = document.getElementById('home-section'); //get home section element
+    const gameSection = document.getElementById('game-section'); //get game section element
+const pauseButton = document.getElementById('pause-btn'); //get pause button element
+const playButton = document.getElementById('play-btn'); //get play button element
+
+
+//add event listeners to difficulty buttons to start the game with the selected difficulty
+difficultyButtons.forEach((button, index) => {
+    button.addEventListener('click', () => {
+        difficultyButtons.forEach(b => b.classList.remove('selected')); //remove selected class from all buttons
+        button.classList.add('selected');//add selected class to the clicked button
+        selectedDifficulty = parseInt(button.dataset.difficulty);  //store the selected difficulty
+        playButton.disabled = false; //enable the play button
+    });
+});
+
+playButton.addEventListener('click', () => {
+    homeSection.style.display= 'none'; //hide home section
+    gameSection.style.display = 'block'; //show game section
+    startGame(selectedDifficulty); //start the game with the selected difficulty
+})
