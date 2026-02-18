@@ -130,28 +130,32 @@ function flipCard(cardElement, card) {
     
 }
 function checkMatch(card1, card2) {
-    //check if the 2 most recently flipped cards match
     if (card1.card.value === card2.card.value) {
-        //if they match set their isMatched property to true and clear the flippedCards array
-        setTimeout(() => {
+        console.log("MATCH! Adding matched class");
+        console.log("Card1 classes before:", card1.cardElement.className);
+        console.log("Card2 classes before:", card2.cardElement.className);
+
         card1.card.isMatched = true;
         card2.card.isMatched = true;
         card1.cardElement.classList.add('matched');
         card2.cardElement.classList.add('matched');
+
+        console.log("Card1 classes after:", card1.cardElement.className);
+        console.log("Card2 classes after:", card2.cardElement.className);
+
         flippedCards = [];
         matchedCardPairs++;
         checkWin();
-        }, 1000); //delay so card show before matched
-        
+
     } else {
-        //if they don't match flip cards over after a  delay and clear the flippedCards array
+        console.log("NO MATCH - flipping back");
         setTimeout(() => {
             card1.card.isFlipped = false;
             card2.card.isFlipped = false;
             card1.cardElement.classList.remove('flipped');
             card2.cardElement.classList.remove('flipped');
             flippedCards = [];
-        }, 1000); //1 sec delay before flipping back
+        }, 1000);
     }
 }
 function checkWin(){

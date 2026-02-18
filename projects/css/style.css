@@ -64,8 +64,6 @@ h1 {
     height: 100px;
     cursor: pointer;
     position: relative;
-    transform-style: preserve-3d;
-    transition: transform 0.5s ease;
 }
 
 .card-front,
@@ -78,29 +76,40 @@ h1 {
     justify-content: center;
     align-items: center;
     font-size: 2.5rem;
-    backface-visibility: hidden;
+    transition: opacity 0.3s ease;
 }
 
 .card-front {
     background: white;
     border: 2px solid #667eea;
-    transform: rotateY(180deg);
+    opacity: 0;
 }
 
 .card-back {
     background: #667eea;
     color: white;
+    opacity: 1;
 }
 
-.card.flipped {
-    transform: rotateY(180deg);
+.card.flipped .card-front {
+    opacity: 1;
+}
+
+.card.flipped .card-back {
+    opacity: 0;
+}
+
+.card.matched .card-front {
+    opacity: 0.6;
+    border-color: #4CAF50;
+}
+
+.card.matched .card-back {
+    opacity: 0;
 }
 
 .card.matched {
-    transform: rotateY(180deg);
-    opacity: 0.6;
     cursor: default;
-    border-color: #4CAF50;
 }
 
 .card:hover:not(.flipped):not(.matched) {
