@@ -222,11 +222,15 @@ const restartButton = document.getElementById('restart-btn'); //get restart butt
 
 
 //add event listeners to difficulty buttons to start the game with the selected difficulty
-difficultyButtons.forEach((button, index) => {
+difficultyButtons.forEach((button) => {
     button.addEventListener('click', () => {
         difficultyButtons.forEach(b => b.classList.remove('selected')); //remove selected class from all buttons
         button.classList.add('selected');//add selected class to the clicked button
         selectedDifficulty = parseInt(button.dataset.difficulty);  //store the selected difficulty
+        document.getElementById('game-board').style.display = 'grid';
+        pauseButton.style.display = 'block';
+        document.querySelector('.stats').style.display = 'block';
+        pauseSection.style.display = 'none';
         playButton.disabled = false; //enable the play button
     });
 });
@@ -241,7 +245,7 @@ pauseButton.addEventListener('click', () => {
     pauseSection.style.display = 'block'; //show the pause section
     document.getElementById('game-board').style.display = 'none'; //hide the game board to prevent interaction while paused
     pauseButton.style.display = 'none';
-    document.querySelector('.sstats').style.display = 'none';
+    document.querySelector('.stats').style.display = 'none'; //hide the stats while paused
     
 });
 
@@ -262,7 +266,6 @@ homeButton.addEventListener('click', () => {
     //reset home section to initial state
     difficultyButtons.forEach(b => b.classList.remove('selected'));
     playButton.disabled = true; //disable the play button until a difficulty is selected
-    selectedDifficulty = null; //reset selected difficulty
 });
 
 restartButton.addEventListener('click', () => {
