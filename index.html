@@ -3,14 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio</title>
+    <title>Erin Steenveld — Portfolio</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+
 <!-- Navigation Bar -->
 <nav>
     <div class="nav-container">
-        <h2 class="logo">Erin's Portfolio</h2>
+        <div class="logo">Erin Steenveld</div>
         <ul class="nav-links">
             <li><a href="#home">Home</a></li>
             <li><a href="#about">About</a></li>
@@ -20,12 +21,12 @@
     </div>
 </nav>
 
-<!--hero section-->
+<!-- Hero section -->
 <section id="home" class="hero">
     <div class="hero-container">
-        <h1>Hi, I'm Erin</h1>
-        <p>Developer | Problem Solver | Creative</p>
-        <a href="#projects" class="button">View my work</a>
+        <h1>Hi, I'm <span>Erin</span></h1>
+        <p class="hero-tagline">Developer &nbsp;|&nbsp; Problem Solver &nbsp;|&nbsp; Creative</p>
+        <a href="#projects" class="button">View My Work</a>
     </div>
 </section>
 
@@ -33,18 +34,22 @@
 <section id="about" class="about">
     <div class="about-container">
 
-        <!--About me -->
+        <!-- About me -->
         <h2 class="section-title">About Me</h2>
-        <p>I'm a developer with experience in C#, Java, JavaScript, and web development.</p>
+        <hr class="section-rule">
+        <p class="about-intro">I'm a developer with experience in C#, Java, JavaScript, and web development — I love turning ideas into real, working things.</p>
 
-        <!--Education and certifications -->
-        <h3>Education and certificationa</h3>
-        <ul>
-            <li>Bacholor's </li>
-            <li>matric</li>
-        </ul>
+        <!-- Education and certifications -->
+        <div class="about-education">
+            <h3>Education &amp; Certifications</h3>
+            <ul>
+                <li>Bachelor's Degree</li>
+                <li>Matric</li>
+            </ul>
+        </div>
 
         <h2 class="section-title">Skills</h2>
+        <hr class="section-rule">
         <div class="skills-grid">
             <div class="skill-card">
                 <h3>Programming Languages</h3>
@@ -52,11 +57,11 @@
                     <li>C#</li>
                     <li>Java</li>
                     <li>JavaScript</li>
-                    <li>HTML/CSS</li>
+                    <li>HTML / CSS</li>
                 </ul>
             </div>
             <div class="skill-card">
-                <h3>Frameworks & Tools</h3>
+                <h3>Frameworks &amp; Tools</h3>
                 <ul>
                     <li>.NET</li>
                     <li>Git</li>
@@ -76,34 +81,35 @@
             </div>
         </div>
 
-
-        <!--Experience -->
-        <h2 class="section-title">Experience</h2>
+        <!-- Experience -->
+        <h2 class="section-title" style="margin-top: 4rem;">Experience</h2>
+        <hr class="section-rule">
         <div class="experience-card">
-            <h3>Expirence 1</h3>
-            <p><strong>Company Name</strong> durartion</p>
+            <h3>Experience 1</h3>
+            <p><strong>Company Name</strong> &nbsp;·&nbsp; Duration</p>
             <ul>
-                <li>blurb</li>
+                <li>Blurb about your role and what you did here.</li>
             </ul>
         </div>
 
     </div>
 </section>
 
-
 <!-- Projects section -->
 <section id="projects" class="projects">
     <div class="container">
         <h2 class="section-title">Projects</h2>
+        <hr class="section-rule">
 
         <div class="project-grid">
+
             <!-- Project 1 -->
             <div class="project-card">
                 <div class="project-image">
-                    <img src="img/project-1.jpg" alt="">
+                    <img src="img/project-1.jpg" alt="Memory Card Game">
                 </div>
                 <div class="project-info">
-                    <h3>Memory Card Game</h3>
+                    <h2>Memory Card Game</h2>
                     <p>A card matching game with multiple difficulty levels and a timer.</p>
                     <div class="project-languages">
                         <span>JavaScript</span>
@@ -119,23 +125,21 @@
 
             <!-- Project 2 -->
 
-
         </div>
     </div>
 </section>
 
-
-
-
+<!-- Contact section -->
 <section id="contact">
     <h2>Get In Touch</h2>
-    <p>Email: erin.steen2003@gmail.com</p>
-    <p>GitHub: <a href="https://github.com/ery-s">github.com/ery-s</a></p>
+    <hr class="section-rule">
+    <p>Email: <a href="mailto:erin.steen2003@gmail.com">erin.steen2003@gmail.com</a></p>
+    <p>GitHub: <a href="https://github.com/ery-s" target="_blank">github.com/ery-s</a></p>
 </section>
-
 
 <footer>
     <p>&copy; 2026 Erin Steenveld. All rights reserved.</p>
 </footer>
+
 </body>
 </html>
