@@ -1,6 +1,16 @@
+:root{
+    --primaryPurple: #5b21b6;
+    --darkGrey: #111827;
+    --lightGrey: #6b7280;
+    --offWhite: #f9fafb;
+    --lightPurple: #f3e8ff;
+    --accent: #2563eb;
+    --green: #4CAF50;
+}
+
 body {
     font-family: Arial, sans-serif;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: var(--lightPurple);
     min-height: 100vh;
     display: flex;
     justify-content: center;
@@ -9,14 +19,14 @@ body {
 
 .container {
     text-align: center;
-    background: white;
+    background: var(--offWhite);
     padding: 2rem;
     border-radius: 10px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    box-shadow: 0 10px 30px var(--darkGrey);
 }
 
 h1 {
-    color: #333;
+    color: var(--primaryPurple);
     margin-bottom: 1rem;
 }
 
@@ -26,7 +36,7 @@ h1 {
 
 #home-section p {
     font-size: 1.2rem;
-    color: #555;
+    color: var(--lightGrey);
     margin-bottom: 2rem;
 }
 
@@ -40,9 +50,9 @@ h1 {
 .difficulty-btn {
     padding: 1.5rem 2rem;
     font-size: 1.2rem;
-    background: white;
-    color: #667eea;
-    border: 3px solid #667eea;
+    background: var(--offWhite);
+    color: var(--primaryPurple);
+    border: 3px solid var(--lightGrey);
     border-radius: 10px;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -50,7 +60,7 @@ h1 {
 
 .difficulty-btn span {
     font-size: 0.9rem;
-    color: #999;
+    color: var(--lightGrey);
     display: block;
     margin-top: 0.5rem;
 }
@@ -60,19 +70,19 @@ h1 {
 }
 
 .difficulty-btn.selected {
-    background: #667eea;
-    color: white;
+    background: var(--primaryPurple);
+    color: var(--offWhite);
 }
 
 .difficulty-btn.selected span {
-    color: #fff;
+    color: var(--offWhite);
 }
 
 #play-btn {
     padding: 1rem 3rem;
     font-size: 1.3rem;
-    background: #4CAF50;
-    color: white;
+    background: var(--green);
+    color: var(--offWhite);
     border: none;
     border-radius: 8px;
     cursor: pointer;
@@ -80,7 +90,7 @@ h1 {
 }
 
 #play-btn:disabled {
-    background: #ccc;
+    background: var(--lightGrey);
     cursor: not-allowed;
 }
 
@@ -105,8 +115,8 @@ h1 {
 #pause {
     padding: 0.75rem 1.5rem;
     font-size: 1rem;
-    background: #667eea;
-    color: white;
+    background: var(--primaryPurple);
+    color: var(--offWhite);
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -114,13 +124,13 @@ h1 {
 }
 
 #pause:hover {
-    background: #5568d3;
+    background: var(--primaryPurple);
 }
 
 .back-link {
     display: inline-block;
     margin-top: 1rem;
-    color: #667eea;
+    color: var(--primaryPurple);
     text-decoration: none;
 }
 
@@ -149,14 +159,14 @@ h1 {
 }
 
 .card-front {
-    background: white;
-    border: 2px solid #667eea;
+    background: var(--offWhite);
+    border: 2px solid var(--primaryPurple);
     opacity: 0;
 }
 
 .card-back {
-    background: #667eea;
-    color: white;
+    background: var(--primaryPurple);
+    color: var(--offWhite);
     opacity: 1;
 }
 
@@ -170,7 +180,7 @@ h1 {
 
 .card.matched .card-front {
     opacity: 0.6;
-    border-color: #4CAF50;
+    border-color: var(--green);
 }
 
 .card.matched .card-back {
