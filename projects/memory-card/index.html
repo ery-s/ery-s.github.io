@@ -4,10 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Memory Card Game</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="css/memoryGameStyle.css">
 </head>
 <body>
-<a href="../../index.html" class="back-link">← Back to Portfolio</a>
+
+<!-- Navigation Bar -->
+<nav>
+    <div class="nav-container">
+        <div class="logo">Erin Steenveld</div>
+        <ul class="nav-links">
+            <li><a href="../../index.html">Home</a></li>
+            <li><a href="../../index.html#about">About</a></li>
+            <li><a href="../../index.html#projects">Projects</a></li>
+            <li><a href="../../index.html#contact">Contact</a></li>
+        </ul>
+    </div>
+</nav>
 <div class="container">
  
     <h1>Memory Card Game</h1>
@@ -22,23 +35,26 @@
         <button id="play-btn" disabled>Play Game</button>
     </div>
     <div id="game-section" style="display: none;">
-    <div class="stats">
-        <p>Moves: <span id="moves">0</span></p>
-        <p>Time: <span id="timer">0</span></p>
-    </div>
-    <button id="pause-btn">||</button>
+        <button id="pause-btn" class="btn-primary"><img src="images/pause-icon.svg" class="pause-icon">Pause</button>
+        <div class="stats">
+            <span>Moves: <span id="moves">0</span></span>
+            <span>Time: <span id="timer">0</span></span>
+        </div>
         <div id="pause-section" style="display: none;">
             <h2>Game Paused</h2>
-            <button id="resume-btn">Resume</button>
-            <button id="restart-btn">Restart</button>
-            <button id="home-btn">Home</button>
+            <button id="resume-btn"><img src="images/play-icon.svg" class="pause-icon">Resume</button>
+            <button id="restart-btn"><img src="images/restart-icon.svg" class="pause-icon">Restart</button>
+            <button id="home-btn"><img src="images/home-icon.svg" class="pause-icon">Home</button>
         </div>
-    <div id="game-board">
-
+        <div id="game-board"></div>
     </div>
     </div>
 </div>
 
+
 <script src="js/memory-card-game.js"></script>
+<footer>
+    <p>&copy; 2026 Erin Steenveld. All rights reserved.</p>
+</footer>
 </body>
 </html>

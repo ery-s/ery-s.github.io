@@ -1,0 +1,273 @@
+:root {
+    --green: #4CAF50;
+    --green-light: #95c498;
+    --green-dark: #082808;
+    --yellow: #ffc414;
+    --yellow-light: #ffd996;
+    --yellow-dark: #c07504;
+
+    --pink: #C2607A;
+    --pink-light: #deabb4;
+    --pink-dark: #b01b46;
+    
+    --game-cards: #e5869f;
+    --game-cards-bg: #f3b5c5;
+    --game-cards-border: #bb7c9f;
+}
+
+body {
+    padding-top: 80px;
+    font-family: Arial, sans-serif;
+    background: var(--bg-main);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container {
+    text-align: center;
+    background: var(--bg-card);
+    padding: 2rem;
+    margin: 2rem 1rem; 
+    border-radius: 10px;
+    box-shadow: 0 10px 30px var(--bg-main);
+    border: 1px solid var(--border-light);
+}
+
+h1 {
+    color: var(--primary);
+    margin-bottom: 1rem;
+}
+
+#home-section {
+    padding: 2rem;
+}
+
+#home-section p {
+    font-size: 1.2rem;
+    color: var(--text-light);
+    margin-bottom: 2rem;
+}
+
+.difficulty-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+.difficulty-btn {
+    padding: 1.5rem 2rem;
+    font-size: 1.2rem;
+    background: var(--bg-card);
+    color: var(--primary);
+    border: 3px solid var(--border-strong);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.difficulty-btn span {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    display: block;
+    margin-top: 0.5rem;
+}
+
+.difficulty-btn:hover {
+    transform: scale(1.05);
+    background: var(--primary-active);
+    color: var(--text-secondary);
+}
+.difficulty-btn:hover span {
+    color: var(--text-secondary);
+}
+
+
+.difficulty-btn.selected {
+    background: var(--primary);
+    color: var(--text-primary);
+}
+
+.difficulty-btn.selected span {
+    color: var(--text-primary);
+}
+
+#play-btn {
+    padding: 1rem 3rem;
+    font-size: 1.3rem;
+    background: var(--green);
+    color: var(--text-primary);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#play-btn:disabled {
+    background: var(--text-light);
+    cursor: not-allowed;
+}
+
+#play-btn:not(:disabled):hover {
+    background: #45a049;
+    transform: scale(1.05);
+}
+
+#game-board {
+    display: grid;
+    grid-template-columns: repeat(4, 100px);
+    gap: 10px;
+    margin: 2rem auto;
+    justify-content: center;
+}
+
+.stats {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 300px;
+    margin: 1rem auto;
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+}
+
+.stats p {
+    margin: 0;
+}
+
+#pause-btn {
+    padding: 0.4rem 1rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+        display: block;
+        margin: 1rem auto;
+}
+
+#pause-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+.pause-icon{
+    width: 22px;
+    height: 22px;
+    margin-right: 10px;
+    vertical-align: middle;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+#resume-btn{
+    padding: 0.4rem 1rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: block;
+    margin: 1rem auto;
+    background: var(--green-light);
+    color: var(--green-dark);
+}
+
+#resume-btn:hover{
+    background: var(--green);
+    color: var(--green-dark);
+    transform: scale(1.05);
+}
+
+#restart-btn {
+    padding: 0.4rem 1rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: block;
+    margin: 1rem auto;
+    background: var(--yellow-light);
+    color: var(--yellow-dark);
+}
+
+#restart-btn:hover{
+    background: var(--yellow);
+    color: var(--yellow-dark);
+    transform: scale(1.05);
+}
+
+
+#home-btn {
+    padding: 0.4rem 1rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: block;
+    margin: 1rem auto;
+    background: var(--pink-light);
+    color: var(--pink-dark);
+}
+
+#home-btn:hover{
+    background: var(--pink);
+    color: var(--pink-dark);
+    transform: scale(1.05);
+}
+.card {
+    width: 100px;
+    height: 100px;
+    cursor: pointer;
+    position: relative;
+}
+
+.card-front,
+.card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.5rem;
+    transition: opacity 0.3s ease;
+}
+
+.card-front {
+    background: var(--game-cards-bg);
+    border: 2px solid var(--game-cards-border);
+    opacity: 0;
+}
+
+.card-back {
+    background: var(--game-cards);
+    color: var(--text-primary);
+    opacity: 1;
+}
+
+.card.flipped .card-front {
+    opacity: 1;
+}
+
+.card.flipped .card-back {
+    opacity: 0;
+}
+
+.card.matched .card-front {
+    opacity: 0.6;
+    border-color: var(--green);
+}
+
+.card.matched .card-back {
+    opacity: 0;
+}
+
+.card.matched {
+    cursor: default;
+}
+
+.card:hover:not(.flipped):not(.matched) {
+    transform: scale(1.05);
+    transition: transform 0.2s ease;
+}
