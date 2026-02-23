@@ -27,6 +27,7 @@
     box-sizing: border-box;
 }
 
+
 body {
     font-family:  sans-serif;
     line-height: 1.6;
@@ -463,6 +464,8 @@ section {
 }
 
 footer {
+    width: 100%;
+    margin-top: auto;
     background: var(--bg-footer);
     color: rgba(255, 255, 255, 0.5);
     text-align: center;

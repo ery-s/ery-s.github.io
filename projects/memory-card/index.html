@@ -35,26 +35,26 @@
         <button id="play-btn" disabled>Play Game</button>
     </div>
     <div id="game-section" style="display: none;">
-    <div class="stats">
-        <p>Moves: <span id="moves">0</span></p>
-        <p>Time: <span id="timer">0</span></p>
-    </div>
-    <button id="pause-btn">||</button>
+        <button id="pause-btn" class="btn-primary">||</button>
+        <div class="stats">
+            <span>Moves: <span id="moves">0</span></span>
+            <span>Time: <span id="timer">0</span></span>
+        </div>
         <div id="pause-section" style="display: none;">
             <h2>Game Paused</h2>
             <button id="resume-btn">Resume</button>
             <button id="restart-btn">Restart</button>
             <button id="home-btn">Home</button>
         </div>
-    <div id="game-board">
-
+        <div id="game-board"></div>
     </div>
     </div>
 </div>
+
+
+<script src="js/memory-card-game.js"></script>
 <footer>
     <p>&copy; 2026 Erin Steenveld. All rights reserved.</p>
 </footer>
-
-<script src="js/memory-card-game.js"></script>
 </body>
 </html>

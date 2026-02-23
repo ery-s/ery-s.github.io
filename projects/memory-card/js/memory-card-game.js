@@ -163,17 +163,17 @@ function checkWin(){
     //check if all cards have a match
         if (matchedCardPairs === cards.length / 2) {
             clearInterval(timer); //stop the timer
-            alert(`Congratulations! You've won the game in ${moves} moves and ${seconds} seconds!`); //display win message with moves and time
+            alert(`Congratulations! You've won the game in ${moves} moves and ${seconds} s!`); //display win message with moves and time
         }
 }
 function updateMoves() {
     //display the moves
-    document.getElementById('moves').innerHTML = `Moves: ${moves}`;
+    document.getElementById('moves').innerHTML = ` ${moves}`;
     
 }
 function updateTime(){
     //display time
-    document.getElementById('timer').innerHTML = `Time: ${seconds} seconds`;
+    document.getElementById('timer').innerHTML = ` ${seconds} s`;
 }
 
 //GAME CONTROL
@@ -229,7 +229,7 @@ difficultyButtons.forEach((button) => {
         selectedDifficulty = parseInt(button.dataset.difficulty);  //store the selected difficulty
         document.getElementById('game-board').style.display = 'grid';
         pauseButton.style.display = 'block';
-        document.querySelector('.stats').style.display = 'block';
+        document.querySelector('.stats').style.display = 'flex';
         pauseSection.style.display = 'none';
         playButton.disabled = false; //enable the play button
     });
@@ -245,7 +245,7 @@ pauseButton.addEventListener('click', () => {
     pauseSection.style.display = 'block'; //show the pause section
     document.getElementById('game-board').style.display = 'none'; //hide the game board to prevent interaction while paused
     pauseButton.style.display = 'none';
-    document.querySelector('.stats').style.display = 'none'; //hide the stats while paused
+    document.querySelector('.stats').style.display = 'none';//hide the stats while paused
     
 });
 
@@ -254,7 +254,7 @@ resumeButton.addEventListener('click', () => {
     pauseSection.style.display = 'none'; //hide the pause section
     document.getElementById('game-board').style.display = 'grid'; //show the game board 
     pauseButton.style.display = 'block';//show the pause button 
-    document.querySelector('.stats').style.display = 'block'; //show the stats again
+    document.querySelector('.stats').style.display = 'flex'; //show the stats again
 });
 
 homeButton.addEventListener('click', () => {
@@ -272,6 +272,6 @@ restartButton.addEventListener('click', () => {
     pauseSection.style.display = 'none'; //Hide pause menu
     document.getElementById('game-board').style.display = 'grid';
     pauseButton.style.display = 'block'; //Show pause button again
-    document.querySelector('.stats').style.display = 'block'; // Show stats again
+    document.querySelector('.stats').style.display = 'flex';// Show stats again
     startGame(selectedDifficulty);
 });
