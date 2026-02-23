@@ -163,7 +163,9 @@ function checkWin(){
     //check if all cards have a match
         if (matchedCardPairs === cards.length / 2) {
             clearInterval(timer); //stop the timer
-            alert(`Congratulations! You've won the game in ${moves} moves and ${seconds} s!`); //display win message with moves and time
+            document.getElementById('total-moves').innerHTML = ` ${moves}`; //display total moves
+            document.getElementById('total-time').innerHTML = ` ${seconds} s`; //display total time
+            document.getElementById('win-section').style.display = 'flex'; //display the win section
         }
 }
 function updateMoves() {
@@ -219,7 +221,8 @@ const pauseSection = document.getElementById('pause-section'); //get pause secti
 const resumeButton = document.getElementById('resume-btn'); //get resume button element
 const homeButton = document.getElementById('home-btn'); //get home button element
 const restartButton = document.getElementById('restart-btn'); //get restart button element
-
+const winHomeButton = document.getElementById('home-btn-win'); //get win home button element
+const winPlayAgain = document.getElementById('playAgain-btn-win'); //get win restart button element
 
 //add event listeners to difficulty buttons to start the game with the selected difficulty
 difficultyButtons.forEach((button) => {
@@ -274,4 +277,19 @@ restartButton.addEventListener('click', () => {
     pauseButton.style.display = 'block'; //Show pause button again
     document.querySelector('.stats').style.display = 'flex';// Show stats again
     startGame(selectedDifficulty);
+});
+
+winHomeButton.addEventListener('click', () => {
+    document.getElementById('win-section').style.display = 'none'; //hide win section
+    gameSection.style.display = 'none'; //hide the game section
+    homeSection.style.display = 'block'; //show the home section
+    clearInterval(timer); //stop the timer
+    //reset home section to initial state
+    difficultyButtons.forEach(b => b.classList.remove('selected'));
+    playButton.disabled = true; //disable the play button until a difficulty is selected
+});
+
+winPlayAgain.addEventListener('click', () => {
+    document.getElementById('win-section').style.display = 'none'; //hide win section
+    startGame(selectedDifficulty); //start a new game with the same difficulty
 });

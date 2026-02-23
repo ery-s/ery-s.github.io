@@ -33,6 +33,7 @@ body {
     border-radius: 10px;
     box-shadow: 0 10px 30px var(--bg-main);
     border: 1px solid var(--border-light);
+    position: relative;
 }
 
 h1 {
@@ -221,6 +222,56 @@ h1 {
     position: relative;
 }
 
+#playAgain-btn-win {
+    padding: 0.4rem 1rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: block;
+    margin: 1rem auto;
+    background: var(--yellow-light);
+    color: var(--yellow-dark);
+}
+
+#playAgain-btn-win:hover{
+    background: var(--yellow);
+    color: var(--yellow-dark);
+    transform: scale(1.05);
+}
+
+#win-section {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.75);
+    z-index: 10;
+    border-radius: 8px; 
+}
+
+#home-btn-win {
+    padding: 0.4rem 1rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: block;
+    margin: 1rem auto;
+    background: var(--pink-light);
+    color: var(--pink-dark);
+}
+
+#home-btn-win:hover{
+    background: var(--pink);
+    color: var(--pink-dark);
+    transform: scale(1.05);
+}
 .card-front,
 .card-back {
     position: absolute;
