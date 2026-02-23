@@ -1,16 +1,10 @@
-:root{
-    --primaryPurple: #5b21b6;
-    --darkGrey: #111827;
-    --lightGrey: #6b7280;
-    --offWhite: #f9fafb;
-    --lightPurple: #f3e8ff;
-    --accent: #2563eb;
+:root {
     --green: #4CAF50;
 }
 
 body {
     font-family: Arial, sans-serif;
-    background: var(--lightPurple);
+    background: var(--bg-main);
     min-height: 100vh;
     display: flex;
     justify-content: center;
@@ -19,14 +13,15 @@ body {
 
 .container {
     text-align: center;
-    background: var(--offWhite);
+    background: var(--bg-card);
     padding: 2rem;
     border-radius: 10px;
-    box-shadow: 0 10px 30px var(--darkGrey);
+    box-shadow: 0 10px 30px var(--bg-main);
+    border: 1px solid var(--border-light);
 }
 
 h1 {
-    color: var(--primaryPurple);
+    color: var(--primary);
     margin-bottom: 1rem;
 }
 
@@ -36,7 +31,7 @@ h1 {
 
 #home-section p {
     font-size: 1.2rem;
-    color: var(--lightGrey);
+    color: var(--text-light);
     margin-bottom: 2rem;
 }
 
@@ -50,9 +45,9 @@ h1 {
 .difficulty-btn {
     padding: 1.5rem 2rem;
     font-size: 1.2rem;
-    background: var(--offWhite);
-    color: var(--primaryPurple);
-    border: 3px solid var(--lightGrey);
+    background: var(--bg-card);
+    color: var(--primary);
+    border: 3px solid var(--border-strong);
     border-radius: 10px;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -60,29 +55,35 @@ h1 {
 
 .difficulty-btn span {
     font-size: 0.9rem;
-    color: var(--lightGrey);
+    color: var(--text-light);
     display: block;
     margin-top: 0.5rem;
 }
 
 .difficulty-btn:hover {
     transform: scale(1.05);
+    background: var(--primary-active);
+    color: var(--text-secondary);
+}
+.difficulty-btn:hover span {
+    color: var(--text-secondary);
 }
 
+
 .difficulty-btn.selected {
-    background: var(--primaryPurple);
-    color: var(--offWhite);
+    background: var(--primary);
+    color: var(--text-primary);
 }
 
 .difficulty-btn.selected span {
-    color: var(--offWhite);
+    color: var(--text-primary);
 }
 
 #play-btn {
     padding: 1rem 3rem;
     font-size: 1.3rem;
     background: var(--green);
-    color: var(--offWhite);
+    color: var(--text-primary);
     border: none;
     border-radius: 8px;
     cursor: pointer;
@@ -90,7 +91,7 @@ h1 {
 }
 
 #play-btn:disabled {
-    background: var(--lightGrey);
+    background: var(--text-light);
     cursor: not-allowed;
 }
 
@@ -110,13 +111,14 @@ h1 {
 .stats {
     margin: 1rem 0;
     font-size: 1.2rem;
+    color: var(--text-secondary);
 }
 
 #pause {
     padding: 0.75rem 1.5rem;
     font-size: 1rem;
-    background: var(--primaryPurple);
-    color: var(--offWhite);
+    background: var(--primary);
+    color: var(--text-primary);
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -124,13 +126,13 @@ h1 {
 }
 
 #pause:hover {
-    background: var(--primaryPurple);
+    background: var(--primary-hover);
 }
 
 .back-link {
     display: inline-block;
     margin-top: 1rem;
-    color: var(--primaryPurple);
+    color: var(--primary);
     text-decoration: none;
 }
 
@@ -159,14 +161,14 @@ h1 {
 }
 
 .card-front {
-    background: var(--offWhite);
-    border: 2px solid var(--primaryPurple);
+    background: var(--bg-card);
+    border: 2px solid var(--primary);
     opacity: 0;
 }
 
 .card-back {
-    background: var(--primaryPurple);
-    color: var(--offWhite);
+    background: var(--primary);
+    color: var(--text-primary);
     opacity: 1;
 }
 
