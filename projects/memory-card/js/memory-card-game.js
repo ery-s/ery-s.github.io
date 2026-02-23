@@ -281,7 +281,8 @@ restartButton.addEventListener('click', () => {
 
 winHomeButton.addEventListener('click', () => {
     document.getElementById('win-section').style.display = 'none'; //hide win section
-    homeSection.style.display = 'block'; //show home section
+    gameSection.style.display = 'none'; //hide the game section
+    homeSection.style.display = 'block'; //show the home section
     clearInterval(timer); //stop the timer
     //reset home section to initial state
     difficultyButtons.forEach(b => b.classList.remove('selected'));
