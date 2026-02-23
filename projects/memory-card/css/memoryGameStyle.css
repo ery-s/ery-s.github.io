@@ -221,6 +221,41 @@ h1 {
     position: relative;
 }
 
+#playAgain-btn-win {
+    padding: 0.4rem 1rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: block;
+    margin: 1rem auto;
+    background: var(--yellow-light);
+    color: var(--yellow-dark);
+}
+
+#playAgain-btn-win:hover{
+    background: var(--yellow);
+    color: var(--yellow-dark);
+    transform: scale(1.05);
+}
+
+#home-btn-win {
+    padding: 0.4rem 1rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: block;
+    margin: 1rem auto;
+    background: var(--pink-light);
+    color: var(--pink-dark);
+}
+
+#home-btn-win:hover{
+    background: var(--pink);
+    color: var(--pink-dark);
+    transform: scale(1.05);
+}
 .card-front,
 .card-back {
     position: absolute;
