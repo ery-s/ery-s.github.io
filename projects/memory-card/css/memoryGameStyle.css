@@ -1,5 +1,8 @@
 :root {
     --green: #4CAF50;
+    --game-cards: #e5869f;
+    --game-cards-bg: #f3b5c5;
+    --game-cards-border: #bb7c9f;
 }
 
 body {
@@ -155,13 +158,13 @@ h1 {
 }
 
 .card-front {
-    background: var(--bg-card);
-    border: 2px solid var(--primary);
+    background: var(--game-cards-bg);
+    border: 2px solid var(--game-cards-border);
     opacity: 0;
 }
 
 .card-back {
-    background: var(--primary);
+    background: var(--game-cards);
     color: var(--text-primary);
     opacity: 1;
 }
