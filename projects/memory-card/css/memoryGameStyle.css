@@ -1,5 +1,15 @@
 :root {
     --green: #4CAF50;
+    --green-light: #95c498;
+    --green-dark: #082808;
+    --yellow: #ffc414;
+    --yellow-light: #ffd996;
+    --yellow-dark: #c07504;
+
+    --pink: #C2607A;
+    --pink-light: #deabb4;
+    --pink-dark: #b01b46;
+    
     --game-cards: #e5869f;
     --game-cards-bg: #f3b5c5;
     --game-cards-border: #bb7c9f;
@@ -137,6 +147,73 @@ h1 {
         margin: 1rem auto;
 }
 
+#pause-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+.pause-icon{
+    width: 22px;
+    height: 22px;
+    margin-right: 10px;
+    vertical-align: middle;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+#resume-btn{
+    padding: 0.4rem 1rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: block;
+    margin: 1rem auto;
+    background: var(--green-light);
+    color: var(--green-dark);
+}
+
+#resume-btn:hover{
+    background: var(--green);
+    color: var(--green-dark);
+    transform: scale(1.05);
+}
+
+#restart-btn {
+    padding: 0.4rem 1rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: block;
+    margin: 1rem auto;
+    background: var(--yellow-light);
+    color: var(--yellow-dark);
+}
+
+#restart-btn:hover{
+    background: var(--yellow);
+    color: var(--yellow-dark);
+    transform: scale(1.05);
+}
+
+
+#home-btn {
+    padding: 0.4rem 1rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: block;
+    margin: 1rem auto;
+    background: var(--pink-light);
+    color: var(--pink-dark);
+}
+
+#home-btn:hover{
+    background: var(--pink);
+    color: var(--pink-dark);
+    transform: scale(1.05);
+}
 .card {
     width: 100px;
     height: 100px;

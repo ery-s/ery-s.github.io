@@ -242,7 +242,7 @@ playButton.addEventListener('click', () => {
 })
 pauseButton.addEventListener('click', () => {
    isPaused= true; // set the game to paused state
-    pauseSection.style.display = 'block'; //show the pause section
+    pauseSection.style.display = 'flex'; //show the pause section
     document.getElementById('game-board').style.display = 'none'; //hide the game board to prevent interaction while paused
     pauseButton.style.display = 'none';
     document.querySelector('.stats').style.display = 'none';//hide the stats while paused
