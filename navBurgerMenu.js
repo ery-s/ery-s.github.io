@@ -6,3 +6,11 @@ burgerBtn.addEventListener("click", () => {
     burgerBtn.setAttribute("aria-expanded", isOpen);
     burgerBtn.classList.toggle("active", isOpen);
 });
+
+navLinks.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", () => {
+        navLinks.classList.remove("open");
+        burgerBtn.classList.remove("active");
+        burgerBtn.setAttribute("aria-expanded", false);
+    });
+});
