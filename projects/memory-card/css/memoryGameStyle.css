@@ -28,8 +28,10 @@ body {
 .container {
     text-align: center;
     background: var(--bg-card);
-    padding: 2rem;
-    margin: 2rem 1rem; 
+    max-width: 900px;
+    width: 90%;
+    padding: 3rem;
+    margin: 2rem auto;
     border-radius: 10px;
     box-shadow: 0 10px 30px var(--bg-main);
     border: 1px solid var(--border-light);
@@ -118,19 +120,22 @@ h1 {
 
 #game-board {
     display: grid;
-    grid-template-columns: repeat(4, 100px);
-    gap: 10px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    width: 80%;
+    max-width: 600px;
     margin: 2rem auto;
-    justify-content: center;
 }
 
 .stats {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    width: 300px;
+    max-width: 300px;
+    width: 100%;
+    padding: 0 1rem;
     margin: 1rem auto;
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     color: var(--text-secondary);
 }
 
@@ -215,9 +220,11 @@ h1 {
     color: var(--pink-dark);
     transform: scale(1.05);
 }
+
 .card {
-    width: 100px;
-    height: 100px;
+    width: 100%;
+    aspect-ratio: 1;
+    height: auto;
     cursor: pointer;
     position: relative;
 }
@@ -321,4 +328,105 @@ h1 {
 .card:hover:not(.flipped):not(.matched) {
     transform: scale(1.05);
     transition: transform 0.2s ease;
+}
+
+@media (max-width: 768px) {
+
+    .container {
+        max-width: 100%;
+        padding: 1rem;
+        margin: 1rem 0.5rem;
+    }
+
+    h1 {
+        font-size: 1.6rem;
+    }
+
+    #home-section p {
+        font-size: 1rem;
+    }
+
+    .difficulty-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .difficulty-btn {
+        width: 100%;
+        max-width: 280px;
+        padding: 1rem;
+    }
+
+    #play-btn {
+        font-size: 1rem;
+        padding: 0.75rem 2rem;
+    }
+
+    .stats {
+        width: 100%;
+        padding: 0 1rem;
+    }
+
+    #pause-btn {
+        font-size: 0.9rem;
+        padding: 0.4rem 0.75rem;
+    }
+
+    #resume-btn, #restart-btn, #home-btn,
+    #playAgain-btn-win, #home-btn-win {
+        font-size: 0.9rem;
+        padding: 0.4rem 0.75rem;
+    }
+
+    #win-section h2 {
+        font-size: 1.4rem;
+    }
+
+    #win-section p {
+        font-size: 0.9rem;
+        padding: 0 1rem;
+    }
+
+    #game-board {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 6px;
+        width: 100%;
+        padding: 0 0.5rem;
+    }
+
+    .card {
+        width: 100%;
+        aspect-ratio: 1;
+        height: auto;
+    }
+
+    .card-front,
+    .card-back {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+
+    h1 {
+        font-size: 1.3rem;
+    }
+
+    .difficulty-btn {
+        font-size: 1rem;
+    }
+
+    .stats {
+        font-size: 1rem;
+    }
+
+    #game-board {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 4px;
+    }
+
+    .card-front,
+    .card-back {
+        font-size: 1.2rem;
+    }
 }
