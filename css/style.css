@@ -135,8 +135,26 @@ nav {
 }
 
 .hero-container {
-    max-width: 680px;
+    max-width: 800px;
     padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    text-align: left;
+}
+
+.hero-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.hero-container h1 {
+    font-size: 3.8rem;
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 1rem;
+    color: var(--charcoal);
+    letter-spacing: -0.02em;
 }
 
 .hero-container h1 {
@@ -160,6 +178,14 @@ nav {
     margin-bottom: 2.5rem;
 }
 
+.profile-image {
+    width: 180px;
+    height: 180px;
+    flex-shrink: 0;
+    border-radius: 45%;
+    object-fit: cover;
+    border: 4px solid var(--primary);
+}
 .button,
 .btn {
     display: inline-block;
@@ -172,8 +198,11 @@ nav {
     letter-spacing: 0.03em;
     transition: all 0.2s ease;
     cursor: pointer;
+    width: 50%;
 }
-
+.hero-text .button {
+    align-self: center;
+}
 .button {
     background: var(--primary);
     color: #FFFFFF;
@@ -590,7 +619,16 @@ textarea:focus {
     .nav-links li:last-child a { border-bottom: none; }
 
     .hero-container h1 { font-size: 2.6rem; }
+    .hero-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 1.5rem;
+    }
 
+    .profile-image {
+        width: 160px;
+        height: 160px;
+    }
     .section-title { font-size: 2rem; }
 
     .project-grid { grid-template-columns: 1fr; }
