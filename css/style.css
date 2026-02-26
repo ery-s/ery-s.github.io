@@ -192,6 +192,7 @@ nav {
     background: var(--primary);
     color: #FFFFFF;
     border: none;
+    align-content: center;
 }
 
 .btn-primary:hover {
@@ -206,6 +207,7 @@ nav {
     background: transparent;
     color: var(--secondary);
     border: 2px solid var(--secondary);
+    align-content: center;
 }
 
 .btn-secondary:hover {
