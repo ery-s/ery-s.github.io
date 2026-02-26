@@ -323,6 +323,7 @@ section {
 
 .experience-card {
     margin-top: 0;
+    margin-bottom: 2rem;
     padding: 2.5rem;
     border-radius: 10px;
     background: var(--bg-alt);
