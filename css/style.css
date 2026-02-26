@@ -244,7 +244,7 @@ section {
 }
 
 .about-education {
-    max-width: 560px;
+    max-width: 700px;
     margin: 0 auto 4rem;
     background: var(--bg-alt);
     border-radius: 10px;
